@@ -1,0 +1,59 @@
+{
+  "data": [
+    {
+      "name": "roomNo",
+      "label": "Room No.",
+      "value": "",
+      "type": "number",
+      "validators": {
+        "required": true
+      }
+    },
+    {
+      "name": "name",
+      "label": "Name",
+      "value": "",
+      "type": "text",
+      "validators": {
+        "required": true
+      }
+    },
+    {
+      "name": "mobile",
+      "label": "Mobile",
+      "value": "",
+      "type": "number",
+      "validators": {
+        "required": true
+      }
+    },
+    {
+      "name": "year",
+      "label": "Year",
+      "value": "2023",
+      "type": "dropdown",
+      "validators": {
+        "required": true
+      },
+      "options": [
+        {
+          "label": "2023",
+          "value": "2023"
+        },
+        {
+          "label": "2022",
+          "value": "2022"
+        }
+      ]
+    },
+    {
+      "name": "comment",
+      "label": "Comment",
+      "value": "",
+      "type": "textArea",
+      "validators": {
+        "required": false
+      }
+    }
+  ]
+}

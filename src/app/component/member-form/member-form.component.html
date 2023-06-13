@@ -1,0 +1,47 @@
+<p-card header="New Member Registartion">
+  <form [formGroup]="dynamicForm" (ngSubmit)="saveForm()">
+    <div class="field" *ngFor="let field of formFields" [ngSwitch]="field.type">
+      <label class="font-bold block mb-2 field">{{ field.label }}</label>
+      <p-inputNumber
+        inputId="integeronly"
+        *ngSwitchCase="'number'"
+        formControlName="{{ field.name }}"
+      >
+      </p-inputNumber>
+      <input
+        type="text"
+        pInputText
+        *ngSwitchCase="'text'"
+        formControlName="{{ field.name }}"
+      />
+      <textarea
+        rows="5"
+        cols="30"
+        pInputTextarea
+        *ngSwitchCase="'textArea'"
+        formControlName="{{ field.name }}"
+      ></textarea>
+
+      <p-dropdown
+        [options]="field.options"
+        formControlName="{{ field.name }}"
+        *ngSwitchCase="'dropdown'"
+      ></p-dropdown>
+
+      <small
+        class="block p-error"
+        *ngIf="
+          dynamicForm?.get(field.name)?.invalid &&
+          dynamicForm?.get(field.name)?.dirty
+        "
+      >
+        {{ field.label }} is required
+      </small>
+    </div>
+    <p-button
+      label="Submit"
+      type="Submit"
+      [disabled]="dynamicForm.invalid"
+    ></p-button>
+  </form>
+</p-card>
